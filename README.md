@@ -1,7 +1,9 @@
 
 # SatoshiNakamoto_Submission 
 
-This repository holds my solutions to the 3 Coding Challenges: The Puzzle, The Interface & The Database. The solutions for The Puzzle and The Database can be found within this repository itself while the solution for The Interface are in two different repositories. See below for more details for each coding challenge.
+This repository holds my solutions to the 3 Coding Challenges: The Puzzle, The Interface & The Database.
+
+The solutions for The Puzzle and The Database can be found within this repository itself while the solution for The Interface are in two different repositories.
 
 
 ## 1. The Puzzle
