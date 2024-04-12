@@ -17,4 +17,4 @@ As mentioned previously, the solution for this coding challenge is split into tw
  - [Backend Repository](https://github.com/Munaiz123/SatoshiNakamoto_Backend)
 
 ## 3. The Database
-The solution for The Database can be found within this repository under ```The_Database/README.md```
+The solution for The Database can be found within this repository under ```The_Database``` folder. There you'll find two seperate .md files for each part of The Databse question.
