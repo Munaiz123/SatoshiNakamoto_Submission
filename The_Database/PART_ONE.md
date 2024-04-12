@@ -54,7 +54,7 @@ WHERE EXISTS (
 )
 ```
 
-I've decided not complete the vertical pattern problem because it'll be better time allocation for me to work on a problem that better represents my skills. 
+I've decided to not complete the vertical pattern problem because it'd be better time spent for me to focus on a problem(The Interface + The Puzzle) where I can demonstrate my skills better. 
 
 
 ## Local Testing
