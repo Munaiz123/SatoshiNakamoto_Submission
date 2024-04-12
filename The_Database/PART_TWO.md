@@ -30,5 +30,21 @@ Another way we can improve performance is via query optimizations. Here are some
 4. Leverage partitioning to prune out data we don't need via ```WHERE``` clauses
 
 ## Scalability
+Once we have designed our database schema and impleneted the different performance strategies wihtin our database, the  we need to address the scalablity and architecure of our databases as it relates to our entire application.
+
+Lets talk about horizontal scaling, Seperation of Concerns design principle as well as how our database fits into modern microservices architecture.
+
+### Horizontal Scaling 
+Assuming that our servers and database managment systems are upto par(vertically scaled) we need to think about deploying multiple servers or nodes. This becomes increasingly more important as our application and user base grows.
+
+In a cloud environment, horizontal scaling means adding a database instance to the database cluster and having a database cluster in multiple availablity zones. 
 
 ### Seperation of Concerns
+Separation of Concerns is a design principle that advocates for software systems to be divided into distinct sections, where each section addresses a single concern or responsibility.
+
+In the context of database scalability, we can apply this principle by having an multiple database instances(or replicas) within a database cluster. One instance/replica of the database would handle only WRITE operations while another would only handle READ operations. The number of which type of instances can be adjusted based on the ratio of READ and WRITE operations taking place. 
+
+### Micoservices Architecture
+We can extend the Seperation of Concerns princiiple by adopting a microservices architecture for our application which then would trickle down into the database layer. This allows each microservice to have its own database, which then would allow teams to scale and manage their databases autonomously.
+
+Lastly, within our microservices architecture we can implment caches to reduce the load on the databases by caching frequently accessed data or query results. 
