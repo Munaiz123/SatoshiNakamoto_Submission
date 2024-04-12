@@ -1,9 +1,6 @@
-# The Database Walkthrough
+# The Database Walkthrough - PART ONE
 
-## PART ONE
-
-
-### Horizontal Pattern
+## Horizontal Pattern
 I enlisted Chat GPT (3.5) to help me get the SQL query to solve Part One of The Database problem throught the following prompt:
 
 ```txt
@@ -34,7 +31,7 @@ JOIN Hashes h ON strpos(h.hash, p.pattern) > 0 AND p.direction = 'h';
 I tested GPT's query by creating a the same tables in the question and ran GPT's query:
 
 
-### Vertical Pattern
+## Vertical Pattern
 
 Coming up with the SQL query for the Vertical pattern proved to be harder than the Horizontal pattern. GPT wasnt as helpful for this pattern. 
 
@@ -43,7 +40,7 @@ I tried to come up with the query myself by taking excerpts from GPT and various
 
 
 
-### Testing Queries
+## Testing the SQL Queries
 
 I created the same db tables locally to test the SQL Queries:
 
