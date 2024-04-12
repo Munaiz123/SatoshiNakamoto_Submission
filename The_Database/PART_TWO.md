@@ -2,7 +2,7 @@
 
 ## Performance
 
-## Data Consistency (Normalized vs Denormalized Schema)
+### Data Consistency (Normalized vs Denormalized Schema)
 The first potential problem that comes to mind is the data consistency and integrity. The best way to combat this potenatial issue is to design a normalized database schema where there are different tables with little to no redundant data. And data is connected from table to table via foreign keys.  
 
 With that being said we can achieve good performance when querying a database by implementing a denormalized database schema that houses redundant data all in one(or few) table(s).
@@ -14,7 +14,7 @@ Speaking of good performance, we can perform faster search operations by impleme
 
 With that being said, I wouldn't index the Patterns Table because indexing can slow down INSERT, DELETE & UDPATE operations. The Patterns Table is already quite small compared to the Hashes Table and indexing a small table won't help much in terms of performance for the Patterns Table. 
 
-### Partition
+### Partitioning
 However, we can improve INSERT, UPDATE and DELETE operations via Partitions. 
 
 Partitioning allows us to break up our tables into logical column segments while still maintaing the larger table structure. This strategy allows us to prune out data from a query we know we don't need. 
@@ -28,8 +28,6 @@ Another way we can improve performance is via query optimizations. Here are some
 2. Isolate data into temp tables / CTEs
 3. Only select the columns we need
 4. Leverage partitioning to prune out data we don't need via ```WHERE``` clauses
-
-
 
 ## Scalability
 
