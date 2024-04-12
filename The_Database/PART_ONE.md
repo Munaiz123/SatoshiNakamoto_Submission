@@ -1,4 +1,4 @@
-# The Database Walkthrough - PART ONE
+# The Database - PART ONE
 
 ## Horizontal Pattern
 I enlisted Chat GPT (3.5) to help me get the SQL query to solve Part One of The Database problem throught the following prompt:
@@ -28,12 +28,10 @@ FROM Patterns p
 JOIN Hashes h ON strpos(h.hash, p.pattern) > 0 AND p.direction = 'h';
 ```
 
-I tested GPT's query by creating a the same tables in the question and ran GPT's query:
-
 
 ## Vertical Pattern
 
-Coming up with the SQL query for the Vertical pattern proved to be harder than the Horizontal pattern. GPT wasnt as helpful for this pattern. 
+Coming up with the SQL query for the Vertical pattern proved to be harder than the Horizontal pattern. GPT wasn't as helpful for this pattern. 
 
 I tried to come up with the query myself by taking excerpts from GPT and various answers on StackOverflow:
 
@@ -41,9 +39,9 @@ I tried to come up with the query myself by taking excerpts from GPT and various
 
 
 ## Testing the SQL Queries
+I tested the two queries by creating a the same tables as in the problem locally on my machine.
 
-I created the same db tables locally to test the SQL Queries:
-
+Running the Horizontal pattern sql query on the tables below should return only two rows.
 
 ```SQL
 -- Create Patterns table
