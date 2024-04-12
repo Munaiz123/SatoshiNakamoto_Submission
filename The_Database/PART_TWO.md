@@ -1,27 +1,25 @@
 # The Database - PART TWO
 
-There are three way 
+## Performance
 
 ## Data Consistency (Normalized vs Denormalized Schema)
-The first potential problem that comes to mind is the data consistency and integrity. The best way to combat this potenatial issue is to design a normalized schema where there are many different tables with little to no redundant data. 
+The first potential problem that comes to mind is the data consistency and integrity. The best way to combat this potenatial issue is to design a normalized database schema where there are different tables with little to no redundant data. And data is connected from table to table via foreign keys.  
 
-With that being said we can achieve really good performance with a denormalized database schema that houses redundant data all in one table or very few tables. 
+With that being said we can achieve good performance when querying a database by implementing a denormalized database schema that houses redundant data all in one(or few) table(s).
 
-## Performance
-Another potential problem is the database performance for the Hashes Table that has 20B rows. With a table of this size, searching for any non-indexed column can have an effect of performance. 
+### Indexing
+Another potential problem is the database performance for the Hashes Table that has 20B rows. 
 
-### Idexing
-We can perform faster search operations by implementing indexes on the block and hash columns of the Hases Table as both of those columns can have many distinct values.
+Speaking of good performance, we can perform faster search operations by implementing indexes on the block and hash columns of the Hases Table as both of those columns can have many distinct values. This technique can be useful, for example, on the Hashes table that has 20B rows of data. With a table of this size, searching for any non-indexed columns can have an effect of performance. 
 
-For example, I wouldn't index the ```direction``` column in the Patterns Table because indexing can slow down INSERT, DELETE & UDPATE operations. Not to mention the Patterns Table is already quite small compared to the Hashes Table and indexing a small table won't help much in terms of performance. 
+With that being said, I wouldn't index the Patterns Table because indexing can slow down INSERT, DELETE & UDPATE operations. The Patterns Table is already quite small compared to the Hashes Table and indexing a small table won't help much in terms of performance for the Patterns Table. 
 
 ### Partition
-With that being said, we can improve INSERT and UPDATE operations via Partitions. The more rows we have in a table the slower our performance will be. 
+However, we can improve INSERT, UPDATE and DELETE operations via Partitions. 
 
-But by breaking up our tables into logical column segments we can still maintain the larger table structure. This strategy allows us prune out data we know we don't need. 
+Partitioning allows us to break up our tables into logical column segments while still maintaing the larger table structure. This strategy allows us to prune out data from a query we know we don't need. 
 
 For example we can parition the Hashes Table based on the block column by a block_number range, e.g 00000 - 33333, 33334-7777, etc. This will improve WRITING performance by block because we wont' have to sift through all 20B. 
-
 
 ### Query Optimizaiton
 Another way we can improve performance is via query optimizations. Here are some query optimization techniques we can use when writing our queries:
