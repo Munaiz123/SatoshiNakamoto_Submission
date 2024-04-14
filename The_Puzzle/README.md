@@ -1,19 +1,18 @@
 # The Puzzle 
 
-## Assumptions / Constraints
+### Assumptions / Constraints
 
 The input for the function would an array of string elements(cards) with the rank of the card is the first character of the string and the suit is the second character of the string. 
 
-SUITS
+#### Suits:
 "H" = Hearts | "S" = Spades | "C" = Clubs | "D" = Diamonds
 
-CARD RANK/NUMBER
+#### Card Rank:
 "A" = Ace    |  "K" = King  | "Q" = Queen | "J" = Jack | "T" = 10 | "9" = 9 | "8" = 8 | etc...
-
 
 Example Input: ['2H', '3H', '4H', '5H', '6H'] 
 
-## Overview
+### Overview
 
 1. Determine what the remaining deck is i.e. what are the remaining cards in the deck after we've been 'dealt' our hand? This will help with calculating probability once we decide what cards we want to add back to the deck. 
 
