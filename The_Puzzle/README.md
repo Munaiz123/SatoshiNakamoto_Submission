@@ -15,13 +15,11 @@ Example Input: ['2H', '3H', '4H', '5H', '6H']
 
 ## Overview
 
-1. Determine what the remaining deck is i.e. what are the remaining cards in the deck after we've been 'dealt' our hand?
-    - This will help with calculating probability once we decide what cards we want to add back to the deck. 
+1. Determine what the remaining deck is i.e. what are the remaining cards in the deck after we've been 'dealt' our hand? This will help with calculating probability once we decide what cards we want to add back to the deck. 
 
-2. We then need to determine what poker hand we have.
+2. We then need to determine what the current poker hand we have is. 
 
-3. Our current poker hand will determine what the higher poker hands we can 'pursue' via mulligan.
-    - Need to have a hierachy of poker hands -> inserted into an array??
+3. Once we know our current poker hand we can determine the poker hands we want to 'pursue' via mulligan. In order to do this, we'll need to have a hierarchy of poker hands. 
 
 4. For each higher-ranked poker hand, we need to identify which cards from our hand we need mulligan.
 
