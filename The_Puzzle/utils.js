@@ -8,3 +8,16 @@ const cardDeck = [
 module.exports =   {
     cardDeck
 }
+
+
+/*
+Royal flush  - A, K, Q, J, 10, all the same suit
+Straight flush - Five cards in a sequence, all in the same suit
+Four of a kind - four of the 5 cards of the same number/ rank
+Full house - 3 of a kind with a pair
+Flush - Any five cards of the same suit, but not in a sequence
+Straight  - Five cards in a sequence, but not of the same suit
+Three of a kind - Three cards of the same number/rank.
+Two pair - Two different pairs
+Pair - Two cards of the same rank.
+*/

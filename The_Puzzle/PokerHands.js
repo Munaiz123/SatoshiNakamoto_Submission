@@ -1,5 +1,5 @@
 // Function to evaluate a poker hand
-let potentialPokerHands = []
+let potentialPokerHandsToPursue = []
 
 module.exports = function evaluatePokerHand(cards) {
     // Sort cards by rank
@@ -9,41 +9,41 @@ module.exports = function evaluatePokerHand(cards) {
     });    
 
     // Check for Royal Flush
-    if (isRoyalFlush(cards)) return {pokerHand:"Royal Flush", potentialPokerHands}
+    if (isRoyalFlush(cards)) return {currentPokerHand:"Royal Flush", potentialPokerHandsToPursue}
 
     // Check for Straight Flush
-    if (isStraightFlush(cards)) return {pokerHand:"Straight Flush", potentialPokerHands}
+    if (isStraightFlush(cards)) return {currentPokerHand:"Straight Flush", potentialPokerHandsToPursue}
 
     // Check for Four of a Kind
-    if (isFourOfAKind(cards)) return {pokerHand:"Four of a Kind", potentialPokerHands}
+    if (isFourOfAKind(cards)) return {currentPokerHand:"Four of a Kind", potentialPokerHandsToPursue}
 
     // Check for Full House
-    if (isFullHouse(cards)) return {pokerHand:"Full House", potentialPokerHands}
+    if (isFullHouse(cards)) return {currentPokerHand:"Full House", potentialPokerHandsToPursue}
 
     // Check for Flush
-    if (isFlush(cards)) return {pokerHand:"Flush", potentialPokerHands}
+    if (isFlush(cards)) return {currentPokerHand:"Flush", potentialPokerHandsToPursue}
 
     // Check for Straight
-    if (isStraight(cards)) return {pokerHand:"Straight", potentialPokerHands};
+    if (isStraight(cards)) return {currentPokerHand:"Straight", potentialPokerHandsToPursue};
 
     // Check for Three of a Kind
-    if (isThreeOfAKind(cards)) return {pokerHand:"Three of a Kind", potentialPokerHands};
+    if (isThreeOfAKind(cards)) return {currentPokerHand:"Three of a Kind", potentialPokerHandsToPursue};
 
     // Check for Two Pair
-    if (isTwoPair(cards)) return {pokerHand:"Two Pair", potentialPokerHands};
+    if (isTwoPair(cards)) return {currentPokerHand:"Two Pair", potentialPokerHandsToPursue};
 
     // Check for Pair
-    if (isPair(cards)) return {pokerHand:"Pair", potentialPokerHands};
+    if (isPair(cards)) return {currentPokerHand:"Pair", potentialPokerHandsToPursue};
 
     // If no other hand, it's a High Card
-    return {pokerHand:"High Card", potentialPokerHands};
+    return {currentPokerHand:"High Card", potentialPokerHandsToPursue};
 }
 
 // Helper function to check if cards form a Royal Flush
 function isRoyalFlush(cards) {
     if(isStraightFlush(cards) && cards[0][0] === 'T') return true
     else{
-        potentialPokerHands.push('Royal Flush')
+        potentialPokerHandsToPursue.push('Royal Flush')
         return false
     }
 }
@@ -52,7 +52,7 @@ function isRoyalFlush(cards) {
 function isStraightFlush(cards) {
     if(isFlush(cards) && isStraight(cards)) return true
     else{
-        potentialPokerHands.push('Straight Flush')
+        potentialPokerHandsToPursue.push('Straight Flush')
         return false
     }
 }
@@ -65,7 +65,7 @@ function isFourOfAKind(cards) {
             return true
         }
         else{
-            potentialPokerHands.push("Four of a Kind")
+            potentialPokerHandsToPursue.push("Four of a Kind")
             return false
         }
 }
@@ -78,7 +78,7 @@ function isFullHouse(cards) {
             return true
         }
         else{
-            potentialPokerHands.push("Full House")
+            potentialPokerHandsToPursue.push("Full House")
             return false
         }
 }
@@ -86,7 +86,7 @@ function isFullHouse(cards) {
 // Helper function to check if cards form a Flush
 function isFlush(cards) {
     if(cards.every(card => card[1] === cards[0][1])) return true
-    else potentialPokerHands.push("Flush")
+    else potentialPokerHandsToPursue.push("Flush")
 }
 
 // Helper function to check if cards form a Straight
@@ -94,7 +94,7 @@ function isStraight(cards) {
     const ranks = '23456789TJQKA';
     for (let i = 0; i < cards.length - 1; i++) {
         if (ranks.indexOf(cards[i + 1][0]) !== ranks.indexOf(cards[i][0]) + 1) {
-            potentialPokerHands.push("Straight")
+            potentialPokerHandsToPursue.push("Straight")
             return false;
         }
     }
@@ -110,7 +110,7 @@ function isThreeOfAKind(cards) {
             return true
         }
         else{
-            potentialPokerHands.push("Three of a Kind")   
+            potentialPokerHandsToPursue.push("Three of a Kind")   
             return false
         }
 }
@@ -125,7 +125,7 @@ function isTwoPair(cards) {
     }
     if(pairs.length === 2) return true
     else{
-        potentialPokerHands.push("Two Pair")
+        potentialPokerHandsToPursue.push("Two Pair")
         return false
     }
 }
@@ -137,6 +137,6 @@ function isPair(cards) {
             return true;
         }
     }
-    potentialPokerHands.push('Pair')
+    potentialPokerHandsToPursue.push('Pair')
     return false;
 }
